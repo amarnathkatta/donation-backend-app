@@ -24,7 +24,7 @@ import com.wellsfargo.test.service.NgoService;
 
 @WebMvcTest(NgoController.class)
 @AutoConfigureMockMvc
-public class NgoControllerTest {
+class NgoControllerTest {
 
 	@Autowired
 	private MockMvc mockMvc;
@@ -40,7 +40,7 @@ public class NgoControllerTest {
 	}
 
 	@Test
-	public void testRegisterNgo() throws Exception {
+	void testRegisterNgo() throws Exception {
 		NgoDto ngoDto = createNgoDto();
 		NgoDto savedNgoDto = createNgoDto();
 		savedNgoDto.setId(123L);
@@ -56,7 +56,7 @@ public class NgoControllerTest {
 	}
 	
 	@Test
-	public void testRegisterNgo_whenInvalidData() throws Exception {
+	void testRegisterNgo_whenInvalidData() throws Exception {
 		NgoDto ngoDto = createNgoDto();
 		ngoDto.setNgoName("A");
 		
@@ -68,7 +68,7 @@ public class NgoControllerTest {
 		assertEquals(400, result.getResponse().getStatus());
 	}
 
-	public static NgoDto createNgoDto() {
+	private NgoDto createNgoDto() {
 		NgoDto ngoDto = new NgoDto();
 		ngoDto.setId(1L);
 		ngoDto.setNgoName("TATA");

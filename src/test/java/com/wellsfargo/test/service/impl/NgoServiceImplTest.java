@@ -17,7 +17,7 @@ import com.wellsfargo.test.entity.NgoEntity;
 import com.wellsfargo.test.repository.NgoRepository;
 
 @ExtendWith(MockitoExtension.class)
-public class NgoServiceImplTest {
+class NgoServiceImplTest {
 
 	@Mock
 	private NgoRepository ngoRepository;
@@ -26,12 +26,12 @@ public class NgoServiceImplTest {
 	private NgoServiceImpl ngoServiceImpl;
 
 	@Test
-	public void testRegisterNgo() {
+	void testRegisterNgo() {
 		doReturn(new NgoEntity()).when(ngoRepository).save(Mockito.any(NgoEntity.class));
 		assertNotNull(ngoServiceImpl.registerNgo(createNgoDto()));
 	}
 
-	public static NgoDto createNgoDto() {
+	 private NgoDto createNgoDto() {
 		NgoDto ngoDto = new NgoDto();
 		ngoDto.setId(1L);
 		ngoDto.setPassword("3443433");

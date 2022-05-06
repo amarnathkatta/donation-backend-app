@@ -26,7 +26,7 @@ import com.wellsfargo.test.service.DonationService;
 
 @WebMvcTest(DonationController.class)
 @AutoConfigureMockMvc
-public class DonationControllerTest {
+class DonationControllerTest {
 
 	@Autowired
 	private MockMvc mockMvc;
@@ -42,7 +42,7 @@ public class DonationControllerTest {
 	}
 
 	@Test
-	public void testAddDonation() throws Exception {
+	void testAddDonation() throws Exception {
 		DonationDto donationDto = createDonationDto();
 		DonationDto savedDonationDto = createDonationDto();
 		savedDonationDto.setId(123L);
@@ -58,7 +58,7 @@ public class DonationControllerTest {
 	}
 
 	@Test
-	public void testAddDonation_whenDataIsInvalid() throws Exception {
+	void testAddDonation_whenDataIsInvalid() throws Exception {
 		DonationDto donationDto = createDonationDto();
 		donationDto.setDonationType("A");
 
@@ -71,7 +71,7 @@ public class DonationControllerTest {
 	}
 
 	@Test
-	public void testGetDonationsByDonorId() throws Exception {
+	void testGetDonationsByDonorId() throws Exception {
 		List<DonationDto> donationDtos = Arrays.asList(createDonationDto());
 		when(this.donationService.getDonationsByDonorId(1L)).thenReturn(donationDtos);
 
@@ -83,7 +83,7 @@ public class DonationControllerTest {
 		assertEquals(mapper.writeValueAsString(donationDtos), result.getResponse().getContentAsString());
 	}
 
-	public static DonationDto createDonationDto() {
+	private DonationDto createDonationDto() {
 		DonationDto donationDto = new DonationDto();
 		donationDto.setId(1L);
 		donationDto.setNgoId(1L);

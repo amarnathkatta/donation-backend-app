@@ -23,7 +23,7 @@ import com.wellsfargo.test.service.DonarService;
 
 @WebMvcTest(DonarController.class)
 @AutoConfigureMockMvc
-public class DonarControllerTest {
+class DonarControllerTest {
 
 	@Autowired
 	private MockMvc mockMvc;
@@ -34,7 +34,7 @@ public class DonarControllerTest {
 	private ObjectMapper mapper = new ObjectMapper();
 
 	@Test
-	public void testRegisterDonar() throws Exception {
+	void testRegisterDonar() throws Exception {
 		DonarDto donarDto = createDonarDto();
 		DonarDto savedDonarDto = createDonarDto();
 		savedDonarDto.setId(123L);
@@ -50,7 +50,7 @@ public class DonarControllerTest {
 	}
 
 	@Test
-	public void testRegisterDonar_whenInvalidData() throws Exception {
+	void testRegisterDonar_whenInvalidData() throws Exception {
 		DonarDto donarDto = createDonarDto();
 		donarDto.setName("A");
 
@@ -63,7 +63,7 @@ public class DonarControllerTest {
 	}
 
 	@Test
-	public void testUpdateDonar() throws Exception {
+	void testUpdateDonar() throws Exception {
 		DonarDto donarDto = createDonarDto();
 		DonarDto updatedDonarDto = createDonarDto();
 		updatedDonarDto.setAddress("New Address");
@@ -79,7 +79,7 @@ public class DonarControllerTest {
 	}
 
 	@Test
-	public void testUpdateDonar_whenInvalidData() throws Exception {
+	void testUpdateDonar_whenInvalidData() throws Exception {
 		DonarDto donarDto = createDonarDto();
 		donarDto.setPhoneNumber(123L);
 
@@ -92,7 +92,7 @@ public class DonarControllerTest {
 	}
 
 	@Test
-	public void testGetAllDonars() throws Exception {
+	void testGetAllDonars() throws Exception {
 		List<DonarDto> donorDtos = Arrays.asList(createDonarDto());
 		when(this.donarService.getAllDonars()).thenReturn(donorDtos);
 
@@ -105,7 +105,7 @@ public class DonarControllerTest {
 	}
 
 	@Test
-	public void testGetDonarByNgoId() throws Exception {
+	void testGetDonarByNgoId() throws Exception {
 		List<DonarDto> donorDtos = Arrays.asList(createDonarDto());
 		when(this.donarService.getDonarsRegisteredWithNgo(1L)).thenReturn(donorDtos);
 

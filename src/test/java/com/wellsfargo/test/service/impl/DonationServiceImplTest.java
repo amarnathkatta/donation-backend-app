@@ -19,7 +19,7 @@ import com.wellsfargo.test.entity.DonationEntity;
 import com.wellsfargo.test.repository.DonationRepository;
 
 @ExtendWith(MockitoExtension.class)
-public class DonationServiceImplTest {
+class DonationServiceImplTest {
 
 	@Mock
 	private DonationRepository donationRepository;
@@ -28,18 +28,18 @@ public class DonationServiceImplTest {
 	private DonationServiceImpl donationServiceImpl;
 
 	@Test
-	public void testRegisterDonation() {
+	void testRegisterDonation() {
 		doReturn(new DonationEntity()).when(donationRepository).save(Mockito.any(DonationEntity.class));
 		assertNotNull(donationServiceImpl.registerDonation(createDonationDto()));
 	}
 
 	@Test
-	public void testGetDonationsByDonorId() {
+	void testGetDonationsByDonorId() {
 		doReturn(Arrays.asList(new DonationEntity())).when(donationRepository).findByDonarId(Mockito.anyLong());
 		assertEquals(1, donationServiceImpl.getDonationsByDonorId(1L).size());
 	}
 
-	public static DonationDto createDonationDto() {
+	private DonationDto createDonationDto() {
 		DonationDto donationDto = new DonationDto();
 		donationDto.setId(1L);
 		donationDto.setNgoId(1L);
