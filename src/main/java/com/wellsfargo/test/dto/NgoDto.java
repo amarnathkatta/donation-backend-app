@@ -14,9 +14,11 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 @Data
 @JsonInclude(JsonInclude.Include.NON_NULL)
+@EqualsAndHashCode(of = { "id" })
 public class NgoDto {
 
 	private Long id;

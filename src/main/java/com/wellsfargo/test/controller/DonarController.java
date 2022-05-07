@@ -21,7 +21,7 @@ import com.wellsfargo.test.exception.InvalidDataException;
 import com.wellsfargo.test.service.DonarService;
 
 @RestController
-@CrossOrigin
+//@CrossOrigin
 @RequestMapping("/e-donation/api/v1/donors")
 public class DonarController {
 

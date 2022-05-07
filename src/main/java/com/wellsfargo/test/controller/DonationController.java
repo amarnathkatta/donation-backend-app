@@ -21,7 +21,7 @@ import com.wellsfargo.test.service.DonationService;
 
 @RestController
 @RequestMapping("/e-donation/api/v1/donations")
-@CrossOrigin
+//@CrossOrigin
 public class DonationController {
 
 	@Autowired
